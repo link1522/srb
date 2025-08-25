@@ -1,0 +1,16 @@
+package com.example.srb.core.mapper;
+
+import com.example.srb.core.pojo.entity.LendItem;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+/**
+ * <p>
+ * 标的出借记录表 Mapper 接口
+ * </p>
+ *
+ * @author Terry
+ * @since 2025-08-25
+ */
+public interface LendItemMapper extends BaseMapper<LendItem> {
+
+}
