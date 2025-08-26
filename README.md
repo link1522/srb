@@ -1,5 +1,3 @@
-將所有模組裝到本地倉庫
-`mvn clean install -DskipTests`
+Swagger ui:
 
-執行 service-core
-`mvn -pl service-core spring-boot:run`
+http://localhost:8110/swagger-ui.html

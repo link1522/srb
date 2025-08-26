@@ -1,0 +1,1 @@
+./mvnw -pl service-core spring-boot:run
