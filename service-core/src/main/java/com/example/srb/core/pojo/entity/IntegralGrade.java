@@ -22,13 +22,13 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@ApiModel(value="IntegralGrade对象", description="积分等级表")
+@ApiModel(value = "IntegralGrade对象", description = "积分等级表")
 public class IntegralGrade implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "编号")
-      @TableId(value = "id", type = IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     @ApiModelProperty(value = "积分区间开始")
@@ -40,16 +40,15 @@ public class IntegralGrade implements Serializable {
     @ApiModelProperty(value = "借款额度")
     private BigDecimal borrowAmount;
 
-    @ApiModelProperty(value = "创建时间")
+    @ApiModelProperty(value = "创建时间", example = "2025-08-26 08:00:00")
     private LocalDateTime createTime;
 
-    @ApiModelProperty(value = "更新时间")
+    @ApiModelProperty(value = "更新时间", example = "2025-08-26 08:00:00")
     private LocalDateTime updateTime;
 
     @ApiModelProperty(value = "逻辑删除(1:已删除，0:未删除)")
     @TableField("is_deleted")
     @TableLogic
     private Boolean deleted;
-
 
 }
