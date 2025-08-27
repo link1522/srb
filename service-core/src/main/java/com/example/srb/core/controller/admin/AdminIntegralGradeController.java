@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.common.result.R;
 import com.example.srb.core.pojo.entity.IntegralGrade;
 import com.example.srb.core.service.IntegralGradeService;
 
@@ -38,13 +39,19 @@ public class AdminIntegralGradeController {
 
     @ApiOperation("積分等級列表")
     @GetMapping("/list")
-    public List<IntegralGrade> listAll() {
-        return integralGradeService.list();
+    public R listAll() {
+        List<IntegralGrade> list = integralGradeService.list();
+        return R.ok().data("list", list).message("獲取列表成功");
     }
 
     @ApiOperation(value = "根據 id 刪除積分等級", notes = "邏輯刪除")
     @DeleteMapping("/remove/{id}")
-    public boolean removeById(@ApiParam(value = "數據 ID", example = "100", required = true) @PathVariable Long id) {
-        return integralGradeService.removeById(id);
+    public R removeById(@ApiParam(value = "數據 ID", example = "100", required = true) @PathVariable Long id) {
+        boolean result = integralGradeService.removeById(id);
+        if (result) {
+            return R.ok().message("刪除成功");
+        } else {
+            return R.error().message("刪除失敗");
+        }
     }
 }
